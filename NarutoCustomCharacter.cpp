@@ -2,7 +2,7 @@
 //Naruto to Boruto Shinobi Striker
 
 #include <iostream>
-#include <string>\
+#include <string>
 
 #define e '\n';
 
