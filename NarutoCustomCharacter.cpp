@@ -1,69 +1,15 @@
-//Jose E Velazquez Sepulveda
+//Jose Velazquez
 //Naruto to Boruto Shinobi Striker
 
-#include <iostream>
-#include <string>
+#include "NarutoCustomCharacter.h"
 
-#define e '\n';
-
-using namespace std;
-
-void verificacion(int& a);
-
-class VoiceyName
+Character::Character()
 {
-public:
-	void final4();
-	void voces();
-	void nombre();
-	bool terminado = false;
-private:
-	string voice, name;
-}z;
-
-class Color
-{
-public:
-	void tercerap();
-	void swc();
-	void final3();
-private:
-	string HairC = "Black", SkinC = "Peach", EyeC = "Blue", HeadbandC = "Black";
-
-}y;
-
-class Parts
-{
-public:
-	void sw();
-	void segundap();
-	void final2();
-private:
-	string BodyType = "Type 3", Hair = "Hairstyle 1", Mouth = "Mouth 1", Eyes = "Eyes 2", Pupils = "Pupils 3", Eyebrows = "Eyebrows 2", Nose = "Nose 1", FacePaints = "FacePaints 3";
-}v;
-
-class Personaje : private Parts, private Color, private VoiceyName
-{
-public:
-	int opc, opc1, counter;
-	bool MoF;
-	void primerap();
-	void final();
-	void review();
-	Personaje();
-	~Personaje();
-private:
-	string Gender, HomeVillage;
-}x;
-
-
-Personaje::Personaje()
-{
-	cout << "-|Bienvenido al Character Creation del Juego : Naruto to Boruto Shinobi Striker|-\n" << e;
-	primerap();
-	segundap();
-	voces();
-	nombre();
+	cout << "-|Welcome to the creation of characters for the game : Naruto to Boruto Shinobi Striker|-\n" << e;
+	FirstPart();
+	SecondPart();
+	Voices();
+	Name();
 }
 
 int main()
@@ -71,12 +17,12 @@ int main()
 
 }
 
-void Personaje::primerap()
+void Character::FirstPart()
 {
 	x.counter = 5;
 	cout << "Select Home Village\n" << e;
 	cout << "|1.Hidden Leaf Village\n|2.Hidden Sand Village\n|3.Hidden Mist Village\n|4.Hidden Stone Village\n|5.Hidden Cloud Village\n" << e;
-	verificacion(x.opc);
+	x.Verification(x.opc);
 	switch (x.opc)
 	{
 	case 1:
@@ -102,7 +48,7 @@ void Personaje::primerap()
 	x.counter = 2;
 	cout << "Select Gender\n" << e;
 	cout << "|1.Male\n|2.Female\n" << e;
-	verificacion(x.opc);
+	x.Verification(x.opc);
 	switch (x.opc)
 	{
 	case 1:
@@ -120,26 +66,26 @@ void Personaje::primerap()
 
 }
 
-void Personaje::final()
+void Character::Final()
 {
-	cout << "\n\n|Home Village --> " << HomeVillage << "\n\n|Genero --> " << Gender << e;
+	cout << "\n\n|Home Village --> " << HomeVillage << "\n\n|Gender --> " << Gender << e;
 }
 
-void Personaje::review()
+void Character::review()
 {
-	cout << "-------------[Tu Personaje]-------------" << e;
-	final();
-	final2();
-	final3();
-	final4();
-	if (z.terminado == true)
+	cout << "-------------[Your Character]-------------" << e;
+	Final();
+	Final2();
+	Final3();
+	Final4();
+	if (z.finish == true)
 	{
 		cout << "----------------[Character Creation Completed]----------------\n\n" << e;
 	}
 	system("pause");
 }
 
-void Parts::segundap()
+void Parts::SecondPart()
 {
 	do
 	{
@@ -148,7 +94,7 @@ void Parts::segundap()
 
 		cout << "\n---------->[11.Ver Personaje]<----------\n\n|1.Body Type  \n|2.Hair \n|3.Eyesbrows \n|4.Eyes  \n|5.Pupils  \n|6.Nose  \n|7.Mouth \n|8.Face Paints\n\n\n         [_[Part]_] [_9.Color_]\n\n\n\n         [_____10.Confirm_____]" << e;
 
-		verificacion(x.opc);
+		x.Verification(x.opc);
 		system("cls");
 		cout << "---------[Appearance Settings]----------\n\n-----------------[Part]-----------------\n" << e;
 		x.counter = 3;
@@ -157,7 +103,7 @@ void Parts::segundap()
 		case 1:
 			cout << "|Body Type\n" << e;
 			cout << "1.Type 1 (Little)\n2.Type 2 (Strong)\n3.Type 3 (Tall)" << e;
-			sw();
+			Aspect();
 			break;
 		case 2:
 			cout << "|Hair\n" << e;
@@ -189,40 +135,40 @@ void Parts::segundap()
 			{
 				cout << "(Ino)\n" << e;
 			}
-			sw();
+			Aspect();
 			break;
 		case 3:
 			cout << "|Eyesbrows\n" << e;
 			cout << "1.Eyebrows 1 (Medium)\n2.Eyebrows 2 (Little)\n3.Eyebrows 3 (Big)" << e;
-			sw();
+			Aspect();
 			break;
 		case 4:
 			cout << "|Eyes\n" << e;
 			cout << "1.Eye 1 (Medium)\n2.Eye 2 (Little)\n3.Eye 3 (Big)" << e;
-			sw();
+			Aspect();
 			break;
 		case 5:
 			cout << "|Pupils\n" << e;
 			cout << "1.Pupils 1 (1 Full Color)\n2.Pupils 2 (Hyuga)\n3.Pupils 3 (Normal)" << e;
-			sw();
+			Aspect();
 			break;
 		case 6:
 			cout << "|Nose\n" << e;
 			cout << "1.Nose 1 (Medium)\n2.Nose 2 (Little)\n3.Nose 3(Big)" << e;
-			sw();
+			Aspect();
 			break;
 		case 7:
 			cout << "|Mouth\n" << e;
 			cout << "1.Mouth 1 (Little)\n2.Mouth 2 (Big)\n3.Mouth 3 (Medium)" << e;
-			sw();
+			Aspect();
 			break;
 		case 8:
 			cout << "|Face Paints\n" << e;
 			cout << "1.Face Paints 1 (Naruto)\n2.Face Paints 2 (Kiba Clan) \n3.Face Paints 3 (Gaara)" << e;
-			sw();
+			Aspect();
 			break;
 		case 9:
-			y.tercerap();
+			y.ThreePart();
 			break;
 		case 10:
 			cout << "Confirm" << e;
@@ -241,20 +187,20 @@ void Parts::segundap()
 
 }
 
-void Parts::final2()
+void Parts::Final2()
 {
-	cout << "\n|Body Type --> " << BodyType << "\n\n|Hair --> " << Hair << "\n\n|Eyes Brows --> " << Eyebrows << "\n\n|Eyes --> " << Eyes << "\n\n|Pupils --> " << Pupils << "\n\n|Nose --> " << Nose << "\n\n|Mouth --> " << Mouth << "\n\n|Face Paints --> " << FacePaints << e;
+	cout << "\n|Body Type --> " << bodyType << "\n\n|Hair --> " << hair << "\n\n|Eyes Brows --> " << eyebrows << "\n\n|Eyes --> " << eyes << "\n\n|Pupils --> " << pupils << "\n\n|Nose --> " << nose << "\n\n|Mouth --> " << mouth << "\n\n|Face Paints --> " << facePaints << e;
 }
 
-void Color::tercerap()
+void Color::ThreePart()
 {
 	x.counter = 7;
 	system("cls");
 	cout << "---------[Appearance Settings]----------\n\n-----------------[Color]----------------" << e;
 
-	cout << "\n----------->[7.Ver Personaje]<----------\n\n|1.Hair Color \n|2.Skin Color \n|3.Eye Color \n|4.Parts Color (Headband)  \n\n\n         [_5.Parts_] [_[Color]_] \n\n\n\n         [_____6.Confirm______]" << e;
+	cout << "\n----------->[7.View Character]<----------\n\n|1.Hair Color \n|2.Skin Color \n|3.Eye Color \n|4.Parts Color (Headband)  \n\n\n         [_5.Parts_] [_[Color]_] \n\n\n\n         [_____6.Confirm______]" << e;
 
-	verificacion(x.opc);
+	x.Verification(x.opc);
 	system("cls");
 	cout << "---------[Appearance Settings]----------\n\n-----------------[Color]----------------" << e;
 	switch (x.opc)
@@ -263,25 +209,25 @@ void Color::tercerap()
 		cout << "\n|Hair Color\n" << e;
 		cout << "1.Black \n2.Blue \n3.Brown " << e;
 		x.opc = 9;
-		swc();
+		AspectColor();
 		break;
 	case 2:
 		cout << "\n|Skin Color\n" << e;
 		cout << "1.Peach \n2.White \n3.Brown " << e;
 		x.opc = 11;
-		swc();
+		AspectColor();
 		break;
 	case 3:
 		cout << "\n|Eye Color\n" << e;
 		cout << "1.Black \n2.Blue \n3.Brown " << e;
 		x.opc = 12;
-		swc();
+		AspectColor();
 		break;
 	case 4:
 		cout << "\n|Parts Color (Headband)\n" << e;
 		cout << "1.Black \n2.Blue \n3.Red " << e;
 		x.opc = 13;
-		swc();
+		AspectColor();
 		break;
 	case 5:
 		cout << "\nParts\n" << e;
@@ -300,78 +246,78 @@ void Color::tercerap()
 
 }
 
-void Color::swc()
+void Color::AspectColor()
 {
 	x.counter = 3;
-	verificacion(x.opc1);
+	x.Verification(x.opc1);
 
 	switch (x.opc1)
 	{
 	case 1:
 		if (x.opc == 9)
 		{
-			HairC = "Black";
+			hairC = "Black";
 		}
 		else if (x.opc == 11)
 		{
-			SkinC = "Peach";
+			skinC = "Peach";
 		}
 		else if (x.opc == 12)
 		{
-			EyeC = "Black";
+			eyeC = "Black";
 		}
 		else if (x.opc == 13)
 		{
-			HeadbandC = "Black";
+			headbandC = "Black";
 		}
 		break;
 	case 2:
 		if (x.opc == 9)
 		{
-			HairC = "Blue";
+			hairC = "Blue";
 		}
 		else if (x.opc == 11)
 		{
-			SkinC = "White";
+			skinC = "White";
 		}
 		else if (x.opc == 12)
 		{
-			EyeC = "Blue";
+			eyeC = "Blue";
 		}
 		else if (x.opc == 13)
 		{
-			HeadbandC = "Blue";
+			headbandC = "Blue";
 		}
 		break;
 	case 3:
 		if (x.opc == 9)
 		{
-			HairC = "Brown";
+			hairC = "Brown";
 		}
 		else if (x.opc == 11)
 		{
-			SkinC = "Brown";
+			skinC = "Brown";
 		}
 		else if (x.opc == 12)
 		{
-			EyeC = "Brown";
+			eyeC = "Brown";
 		}
 		else if (x.opc == 13)
 		{
-			HeadbandC = "Red";
+			headbandC = "Red";
 		}
 		break;
 	}
-	tercerap();
+	ThreePart();
 
 }
 
-void Color::final3()
+void Color::Final3()
 {
-	cout << "\n|Hair Color --> " << HairC << "\n\n|Skin Color --> " << SkinC << "\n\n|Eyes Color --> " << EyeC << "\n\n|Parts Color (HeadBand) --> " << HeadbandC << "\n" << e;
+	cout << "\n|Hair Color --> " << hairC << "\n\n|Skin Color --> " << skinC << "\n\n|Eyes Color --> " << eyeC << "\n\n|Parts Color (HeadBand) --> " << headbandC << "\n" << e;
 }
 
-void Parts::sw()
+void Parts::Aspect()
 {
 	x.counter = 3;
 	cin >> x.opc1;
@@ -380,131 +326,131 @@ void Parts::sw()
 	case 1:
 		if (x.opc == 1)
 		{
-			BodyType = "Body Type 1";
+			bodyType = "Body Type 1";
 		}
 		else if (x.opc == 2)
 		{
-			Hair = "Hairstyle 1";
+			hair = "Hairstyle 1";
 		}
 		else if (x.opc == 3)
 		{
-			Eyebrows = "Eyebrows 1";
+			eyebrows = "Eyebrows 1";
 		}
 		else if (x.opc == 4)
 		{
-			Eyes = "Eyes 1";
+			eyes = "Eyes 1";
 		}
 		else if (x.opc == 5)
 		{
-			Pupils = "Pupils 1";
+			pupils = "Pupils 1";
 		}
 		else if (x.opc == 6)
 		{
-			Nose = "Nose 1";
+			nose = "Nose 1";
 		}
 		else if (x.opc == 7)
 		{
-			Mouth = "Mouth 1";
+			mouth = "Mouth 1";
 
 		}
 		else if (x.opc == 8)
 		{
-			FacePaints = "FacePaints 1";
+			facePaints = "FacePaints 1";
 		}
 		break;
 	case 2:
 		if (x.opc == 1)
 		{
-			BodyType = "Body Type 2";
+			bodyType = "Body Type 2";
 		}
 		else if (x.opc == 2)
 		{
-			Hair = "Hairstyle 2";
+			hair = "Hairstyle 2";
 		}
 		else if (x.opc == 3)
 		{
-			Eyebrows = "Eyebrows 2";
+			eyebrows = "Eyebrows 2";
 		}
 		else if (x.opc == 4)
 		{
-			Eyes = "Eyes 2";
+			eyes = "Eyes 2";
 		}
 		else if (x.opc == 5)
 		{
-			Pupils = "Pupils 2";
+			pupils = "Pupils 2";
 		}
 		else if (x.opc == 6)
 		{
-			Nose = "Nose 2";
+			nose = "Nose 2";
 		}
 		else if (x.opc == 7)
 		{
-			Mouth = "Mouth 2";
+			mouth = "Mouth 2";
 
 		}
 		else if (x.opc == 8)
 		{
-			FacePaints = "FacePaints 2";
+			facePaints = "FacePaints 2";
 		}
 		break;
 	case 3:
 		if (x.opc == 1)
 		{
-			BodyType = "Body Type 3";
+			bodyType = "Body Type 3";
 		}
 		else if (x.opc == 2)
 		{
-			Hair = "Hairstyle 3";
+			hair = "Hairstyle 3";
 		}
 		else if (x.opc == 3)
 		{
-			Eyebrows = "Eyebrows 3";
+			eyebrows = "Eyebrows 3";
 		}
 		else if (x.opc == 4)
 		{
-			Eyes = "Eyes 3";
+			eyes = "Eyes 3";
 		}
 		else if (x.opc == 5)
 		{
-			Pupils = "Pupils 3";
+			pupils = "Pupils 3";
 		}
 		else if (x.opc == 6)
 		{
-			Nose = "Nose 3";
+			nose = "Nose 3";
 		}
 		else if (x.opc == 7)
 		{
-			Mouth = "Mouth 3";
+			mouth = "Mouth 3";
 
 		}
 		else if (x.opc == 8)
 		{
-			FacePaints = "FacePaints 3";
+			facePaints = "FacePaints 3";
 		}
 		break;
 	}
 }
 
-Personaje::~Personaje()
+Character::~Character()
 {
-	z.terminado = true;
+	z.finish = true;
 	review();
 }
 
-void verificacion(int& a)
+void Character::Verification(int& a)
 {
 	while (true)
 	{
 		cin >> a;
 		if (!cin.good())
 		{
-			cout << "Solo numeros : ";
-			cin.clear();//Borrar datos del cin
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');//Ignora los espacios
+			cout << "Only Numbers : ";
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 		else if (x.counter == 2 && a > 2 || x.counter == 3 && a > 3 || x.counter == 5 && a > 5 || x.counter == 11 && a > 11 || x.counter == 7 && a > 7)
 		{
-			cout << "Opcion Invalida" << e;
+			cout << "Invalid option" << e;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
@@ -513,18 +459,18 @@ void verificacion(int& a)
 	}
 }
 
-void VoiceyName::final4()
+void VoiceyName::Final4()
 {
 	cout << "Voice --> " << voice << e;
-	cout << "\nNombre -->" << name << "\n\n" << e;
+	cout << "\nName -->" << name << "\n\n" << e;
 }
 
-void VoiceyName::voces()
+void VoiceyName::Voices()
 {
 	x.counter = 3;
 	cout << "-----------[Select Voice]-----------\n\n---------------[Voice]--------------\n" << e;
 	cout << "|1.Voice 1 (Acute)\n|2.Voice 2 (Deep)\n|3.Voice 3 (Hoarse)\n" << e;
-	verificacion(x.opc);
+	x.Verification(x.opc);
 	switch (x.opc)
 	{
 	case 1:
@@ -539,13 +485,13 @@ void VoiceyName::voces()
 	}
 }
 
-void VoiceyName::nombre()
+void VoiceyName::Name()
 {
 	system("cls");
 	x.counter = 3;
 	cout << "---------------[Register]---------------\n" << e;
 	cout << "|1.Enter Name \n|2.Register Avatar\n" << e;
-	verificacion(x.opc);
+	x.Verification(x.opc);
 	switch (x.opc)
 	{
 	case 1:
@@ -553,7 +499,7 @@ void VoiceyName::nombre()
 		cout << "|Enter Name|\n" << e;
 		cout << "|Give your avatar a name|\n" << e;
 		cin >> name;
-		nombre();
+		Name();
 		break;
 	case 2:
 		system("cls");
