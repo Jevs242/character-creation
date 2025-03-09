@@ -1,7 +1,7 @@
 //Jose Velazquez
 //Naruto to Boruto Shinobi Striker
 
-#include "NarutoCustomCharacter.h"
+#include "character-creation.h"
 
 Character::Character()
 {
@@ -15,6 +15,24 @@ Character::Character()
 int main()
 {
 
+}
+
+void ClearScreen() {
+#ifdef _WIN32
+    system("cls"); // Windows
+#else
+    system("clear"); // Linux and macOS
+#endif
+}
+
+void Pause() {
+#ifdef _WIN32
+    system("pause");
+#else
+    cout << "Press Enter to continue...";
+    cin.ignore();
+    cin.get(); // Linux and macOS
+#endif
 }
 
 void Character::FirstPart()
@@ -44,7 +62,7 @@ void Character::FirstPart()
 		break;
 	}
 
-	system("cls");
+	ClearScreen();
 	x.counter = 2;
 	cout << "Select Gender\n" << e;
 	cout << "|1.Male\n|2.Female\n" << e;
@@ -62,7 +80,7 @@ void Character::FirstPart()
 	default:
 		break;
 	}
-	system("cls");
+	ClearScreen();
 
 }
 
@@ -82,7 +100,7 @@ void Character::review()
 	{
 		cout << "----------------[Character Creation Completed]----------------\n\n" << e;
 	}
-	system("pause");
+	Pause();
 }
 
 void Parts::SecondPart()
@@ -95,7 +113,7 @@ void Parts::SecondPart()
 		cout << "\n---------->[11.Ver Personaje]<----------\n\n|1.Body Type  \n|2.Hair \n|3.Eyesbrows \n|4.Eyes  \n|5.Pupils  \n|6.Nose  \n|7.Mouth \n|8.Face Paints\n\n\n         [_[Part]_] [_9.Color_]\n\n\n\n         [_____10.Confirm_____]" << e;
 
 		x.Verification(x.opc);
-		system("cls");
+		ClearScreen();
 		cout << "---------[Appearance Settings]----------\n\n-----------------[Part]-----------------\n" << e;
 		x.counter = 3;
 		switch (x.opc)
@@ -172,16 +190,16 @@ void Parts::SecondPart()
 			break;
 		case 10:
 			cout << "Confirm" << e;
-			system("cls");
+			ClearScreen();
 			break;
 		case 11:
-			system("cls");
+			ClearScreen();
 			x.review();
 			break;
 		default:
 			break;
 		}
-		system("cls");
+		ClearScreen();
 	} while (x.opc != 10);
 
 
@@ -195,13 +213,13 @@ void Parts::Final2()
 void Color::ThreePart()
 {
 	x.counter = 7;
-	system("cls");
+	ClearScreen();
 	cout << "---------[Appearance Settings]----------\n\n-----------------[Color]----------------" << e;
 
 	cout << "\n----------->[7.View Character]<----------\n\n|1.Hair Color \n|2.Skin Color \n|3.Eye Color \n|4.Parts Color (Headband)  \n\n\n         [_5.Parts_] [_[Color]_] \n\n\n\n         [_____6.Confirm______]" << e;
 
 	x.Verification(x.opc);
-	system("cls");
+	ClearScreen();
 	cout << "---------[Appearance Settings]----------\n\n-----------------[Color]----------------" << e;
 	switch (x.opc)
 	{
@@ -235,13 +253,13 @@ void Color::ThreePart()
 	case 6:
 		cout << "Confirm" << e;
 		x.opc = 10;
-		system("cls");
+		ClearScreen();
 		break;
 	case 7:
-		system("cls");
+		ClearScreen();
 		x.review();
 	}
-	system("cls");
+	ClearScreen();
 
 
 }
@@ -487,7 +505,7 @@ void VoiceyName::Voices()
 
 void VoiceyName::Name()
 {
-	system("cls");
+	ClearScreen();
 	x.counter = 3;
 	cout << "---------------[Register]---------------\n" << e;
 	cout << "|1.Enter Name \n|2.Register Avatar\n" << e;
@@ -495,20 +513,20 @@ void VoiceyName::Name()
 	switch (x.opc)
 	{
 	case 1:
-		system("cls");
+		ClearScreen();
 		cout << "|Enter Name|\n" << e;
 		cout << "|Give your avatar a name|\n" << e;
 		cin >> name;
 		Name();
 		break;
 	case 2:
-		system("cls");
+		ClearScreen();
 		if (name == "")
 		{
 			cout << "|Put a name : ";
 			cin >> name;
 		}
-		system("cls");
+		ClearScreen();
 		break;
 	}
 }
