@@ -1,6 +1,15 @@
 #pragma once
 #include <iostream>
+#include <limits> // For numeric_limits
 #include <string>
+
+#ifdef _WIN32
+#include <windows.h> // For Windows-specific functions
+#else
+#include <unistd.h>  // For Linux-specific functions
+#endif
+
+using namespace std;
 
 #define e '\n';
 
