@@ -8,16 +8,16 @@ Before you begin, ensure you have `g++` installed on your system to compile the 
 
 ## Compiling the Program
 
-To compile the Naruto to Boruto Character Creation program, open a terminal in the directory containing `character-creation.cpp` and execute the following command:
+To compile the Naruto to Boruto Character Creation program, open a terminal in the directory containing `character.cpp` and execute the following command:
 
 ```bash
-g++ -o character-creation character-creation.cpp
+g++ -o character character.cpp
 ```
 
 ## Running the program
 
 After compiling the program, you can run it by executing:
 ```bash
-./character-creation
+./character
 ```
 

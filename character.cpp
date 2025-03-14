@@ -1,7 +1,7 @@
 //Jose Velazquez
 //Naruto to Boruto Shinobi Striker
 
-#include "character-creation.h"
+#include "character.h"
 
 Character::Character()
 {
